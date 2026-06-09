@@ -30,7 +30,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddAutoMapper( cfg => { }, typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(
