@@ -22,8 +22,9 @@ builder.Services.AddCors(options =>
         {
             policy
                 .WithOrigins(
-                    "http://localhost:5173"
-                )
+    "http://localhost:5173",
+    "https://shopeasy-frontend.vercel.app"
+)
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -103,11 +104,8 @@ var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
